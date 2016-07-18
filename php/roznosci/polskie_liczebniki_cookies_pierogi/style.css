@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, Verdana;
+    font-size:0.9em;
+    color: #000000;
+    background-color: #ffffff }
+div.thething {
+    padding:1%;
+    width: 30vw;
+    margin:auto;
+    vertical-align: middle;
+    background-color:#d0e9c6;
+    border-radius: 2%;
+    border: 3px solid #28a4c9;
+}
+div.somelist {
+    line-height:1.5;
+    color:#122b40;
+    font-style:italic;
+}
+.error {
+    padding: 2em;
+    text-align:center;
+    color:#8e4d8e
+}
+div.form {
+    margin:auto;
+    text-align:center;
+}
+input, textarea, select, button {
+    box-sizing: border-box;
+    background-color:#a6e1ec;
+    border: 1px solid #28a4c9;
+}
