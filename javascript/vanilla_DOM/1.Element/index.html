@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodersLab - Cwiczenia DOM - Elementy</title>
+    <link href="style/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header id="home" class="klasahome1 klasahome2">
+    <div class="ban article">
+        <div class="logo"></div>
+        <h1>JavaScript is rulez.</h1>
+
+        <div class="title">
+            Fusce return pretium lorem semper nulla. Fus ce ra. Fusce return pretium lorem semper nulla. Fus ce ra.
+        </div>
+    </div>
+    <div class="blocks">
+        <div class="block">
+            <a href="">Start</a>
+            <a href="">About</a>
+        </div>
+        <div class="block">
+            <a href="">Service</a>
+            <a href="">Portfolio</a>
+        </div>
+        <div class="block">
+            <a href="">Blog</a>
+            <a href="">Contact</a>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li data-direction="down"><a class="scroll"  href="#home">home</a></li>
+        <li data-direction="down"><a class="scroll"  href="#about">about</a></li>
+        <li><a class="scroll" href="#team">team</a></li>
+        <li><a class="scroll" href="#service">service</a></li>
+        <li><a class="scroll" href="#portfolio">portfolio</a></li>
+        <li data-direction="down"><a class="scroll"  href="#blog">blog</a></li>
+        <li><a class="scroll" href="#contact">contact</a></li>
+    </ul>
+</nav>
+
+<section>
+    <article class="first">
+        <div class="feature parts">
+            <div class="offers">
+                <div class="heart icons"></div>
+                <!-- brak klas przy tym h2 powoduje pustą linijkę
+                w tym, co dostajemy od zapętlonej metody className -->
+                <h2>Build with passion</h2>
+                <p class="offerschild">
+                    Fusce return pretium lorem semper nulla.
+                    ra. Fusce return prm lorem sem
+                </p>
+
+            </div>
+            <div class="offers">
+                <!-- 3 dzieci klasy offers: div, h2, p (bez klas, dlatego puste w js-->
+                <div class="brilant icons"></div>
+
+                <h2>Clean and morn</h2>
+
+                <p>
+                    Fusce return pretium lorem semper nulla.
+                    ra. Fusce return prm lorem sem
+                </p>
+            </div>
+            <div class="offers">
+                <div class="cup icons"></div>
+
+                <h2>Easy to use</h2>
+
+                <p>
+                    Fusce return pretium lorem semper nulla.
+                    ra. Fusce return pretium .m lor
+                </p>
+            </div>
+            <div class="offers">
+                <div class="phone icons"></div>
+
+                <h2>Fully Responsive</h2>
+
+                <p>
+                    Fusce return pretium lorem semper nulla.
+                    ra. Fusce return pretium .m lor
+                </p>
+            </div>
+        </div>
+    </article>
+
+</section>
+<!-- js wrzucamy na końcu, bo i tak odpala się po załadowaniu całośći -->
+<script src="js/app.js" type="text/javascript"></script>
+</body>
+</html>
