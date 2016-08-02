@@ -6,12 +6,15 @@ document.addEventListener("DOMContentLoaded", function(){
     /*
     Poniżej napisz kod rozwiązujący zadania
      */
+//Ćwiczenie 2
 var home1 = document.getElementById("home"); //get - atrybut bez znaków z css
 var home2 = document.querySelector("#home");//query - atrybut ze znakami css: . #
 console.log (home1, home2);
 var LiNotDataDirection = document.querySelector("li:not([data-direction])");
-console.log (LiNotDataDirection);
+console.log ('LiNotDataDirection: '+LiNotDataDirection); //tu zamiast html node'a mamy wynik typeof :)
+console.log (LiNotDataDirection); //a tu html node normalnie
 var firstBlockClass = document.querySelector(".block");
+console.log ('firstBlockClass: '+firstBlockClass);
 console.log (firstBlockClass);
 
 //Ćwiczenie 2
@@ -44,9 +47,17 @@ for (var j = 0; j < divs.length; j++){
 console.log(divs[j].className);
 }
 
+//Ćwiczenie dodatkowe
+    //zmienna allLiInNav z ćw. 2
+    for (var k = 0; k < allLiInNav.length; k++){
+        if (allLiInNav[k].dataset.direction == undefined){
+            allLiInNav[k].dataset.direction = 'top';
+            console.log('ustawiono dla elementu nr '+k);
+        }
+        else console.log('pominięto element nr '+k);
+    }
+
 });
-
-
 
 
 
