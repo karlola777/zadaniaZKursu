@@ -37,14 +37,17 @@
     width: 100%;
 }
 
+.ex3 .error {
+    background-color: red;
+}
+
+
 .ex3 .menuElement{
     display: inline-block;
     position: relative;
 }
 
-.ex3 .menuElement.error{
-    background-color: red;
-}
+
 
 .ex3 .menuElement.selected{
     -webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.75);
@@ -54,4 +57,8 @@
 
 .ex5 .big{
     font-size: 24px;
+}
+
+.ex5 > ul > li > a{
+    text-decoration: none;
 }

@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 document.querySelector(".firefox").style.backgroundImage = "url('assets/img/firefox.png')";
 document.querySelector(".edge").style.backgroundImage = "url('assets/img/edge.png')";
-
 /* znak + -> znajdowanie brata wszystkiego o klasie chrome. Poszukać, co robią "+" w css */
 document.querySelector(".chrome + a").innerHTML="Chrome";
 document.querySelector(".chrome").style.width = "100px";
@@ -26,15 +25,38 @@ var menuList = document.querySelector(".ex3 > ul");
 menuList.classList.add("menu");
 var menuArr = menuList.querySelectorAll("li");
 for (var a = 0; a < menuArr.length; a++){
-menuArr[a].classList.add("menuElement"); //od tego momentu menu zmienia się w poziomą tablicę,
+menuArr[a].classList.add("menuElement"); //menu staje się obiektem z dodaną taką klasą
 }
 //wszystkiemu, co ma klasę .error, zabierz klasę .error
 var errorItems =document.querySelectorAll(".ex3 .error");
-for (var a = 0; a < errorItems.length; a++){
-errorItems[a].classList.remove("error");
+for (var b = 0; b < errorItems.length; b++){
+errorItems[b].classList.remove("error");
 }
 
 //ćwiczenie 4
+    var listEx4 = document.querySelectorAll(".ex4 > ul > li");
+    console.log('cwiczenie 4');
+    console.log(listEx4);
+    for(var c=0; c < listEx4.length; c++){ //ha ha suche
+        //sposób 1
+        //listEx4[c].dataset.id = c+1;
+        //sposób 2
+        listEx4[c].setAttribute("dataset-id",c+1); //warning dla c+1 że mieszam typy :(
+    }
 
+//ćwiczenie 5
+    var listEx5 = document.querySelectorAll(".ex5 > ul > li");
+    for(var d=0; d < listEx5.length; d++){
+        if(listEx5[d].dataset.direction == null){
+            listEx5[d].dataset.direction = 'up';
+        }
+        if ((d+1) % 2 == 0){
+            listEx5[d].style.backgroundColor = '#00FF00';
+        }
+        if ((d+1) % 3 == 0){
+            listEx5[d].style.textDecoration = 'underline';
+        }
+    }
+    listEx5[5-1].classList.add('big');
 
 });
