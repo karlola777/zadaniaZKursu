@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        body {width:100%;
+            font-family:Arial, Helvetica, sans-serif;
+            line-height:1.5em;
+        }
+        h1, h2 {
+            color: #FE642E;
+        }
+        span {
+            padding:5px;
+        }
+        #main{
+            width: 50%;
+            margin:auto;
+            display:flex;
+        }
+        #source {
+            width: 50%;
+            float:left;
+            border:1px solid #F7BE81;
+            padding:0.5em;
+        }
+        #hintArea {
+            margin:0;
+            position:relative;
+            width: 50%;
+            background-color:#F7BE81;
+            border:1px solid #F7BE81;
+            overflow:hidden;
+        }
+        #hint {
+            margin:0;
+            position:absolute;
+        }
+        #target {
+            width:0;height:0;
+            display:none;
+        }
+        .faded {
+            background-color:#F7BE81;
+        }
+
+    </style>
+    <title>Translations on mouse over</title>
+</head>
+<body>
+<div id="main">
+    <div id="source" lang="pl">
+        <div id="przepis">
+            <h1>Sos BBQ</h1>
+            <h2>Składniki</h2>
+            <ul>
+                <li>2 średnie pomidory</li>
+                <li>1 mała cebula</li>
+                <li>6-7 suszonych śliwek</li>
+                <li>1-2 łyżki musztardy</li>
+                <li>1-2 łyżki octu jabłkowego lub winnego</li>
+                <li>2 łyżki ciemnego sosu sojowego</li>
+                <li>olej do smażenia</li>
+                <li>1-1,5 łyżeczki wędzonej papryki</li>
+                <li>sól i&nbsp;pieprz</li>
+            </ul>
+            <h2>Wykonanie</h2>
+            <span>Śliwki zalać wrzątkiem i&nbsp;odstawić.</span>
+            <span>Na patelni rozgrzać olej i&nbsp;podsmażyć posiekaną cebulę.</span>
+            <span>Pomidory pokroić w kostkę i&nbsp;wrzucić na patelnię.</span>
+            <span>Dusić do miękkości.</span>
+            <span>Następnie dodać śliwki, musztardę, ocet, sos sojowy oraz wędzoną paprykę.</span>
+            <span>Wszystko zmiksować na gładką masę i&nbsp;doprawić do smaku.</span>
+            <span>Zredukować na niewielkim ogniu do pożądanej konsystencji.</span>
+        </div>
+    </div>
+
+    <div id="target" lang="en">
+        <h1>BBQ sauce</h1>
+        <h2>Ingredients</h2>
+        <ul>
+            <li>2 medium tomatoes</li>
+            <li>1 small onion</li>
+            <li>6-7 dried plums</li>
+            <li>1-2 tbsp mustard</li>
+            <li>1-2 tbsp cider or wine vinegar</li>
+            <li>2 tbsp dark soy sauce</li>
+            <li>frying oil</li>
+            <li>1-1.5 tsp smoked bell pepper</li>
+            <li>salt & pepper</li>
+        </ul>
+        <h2>Preparation</h2>
+        <span>Pour boiling water over the plums and put aside.</span>
+        <span>Heat up oil on the pan and pre-fry chopped onion.</span>
+        <span>Dice the tomatoes and add them to the pan.</span>
+        <span>Simmer until soft.</span>
+        <span>Then add plums, mustard, vinegar, soy sauce, and smoked pepper.</span>
+        <span>Blend all smooth and season to taste.</span>
+        <span>Reduce to desired consistency over slow flame.</span>
+    </div>
+
+    <div id="hintArea">
+        <div id="hint" lang="en"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function hintTranslations(sourceDiv,targetDiv, hint){
+        var source = document.getElementById(sourceDiv)
+                .querySelectorAll('h1,h2,h3,li,span');
+        var hintText = document.getElementById(hint);
+        for(var i = 0; i < source.length; i++){
+            //jak to się dzieje, że ten index "wie", że jest równy i :D
+            (function(index){
+                //zrób tło i tłumaczenie:
+                source[i].addEventListener('mouseover', function(){
+                    this.classList.add('faded');
+                    var target = document.getElementById(targetDiv)
+                            .querySelectorAll('h1,h2,h3,li,span')[index]
+                            .innerHTML;
+                    //bez -10 jest krzywo
+                    var sourcePos = Math.round(this.offsetTop)-10;
+                    hintText.style.top = sourcePos+'px';
+                    hintText.innerHTML = target;
+                });
+                //zdejmij tło i tłumaczenie:
+                source[i].addEventListener('mouseleave', function(){
+                    this.classList.remove('faded');
+                    hintText.style = null;
+                    hintText.innerHTML = '';
+                });
+            })(i);
+        }
+    }
+
+document.addEventListener("DOMContentLoaded", function(){
+    hintTranslations('przepis','target', 'hint');
+});
+</script>
+</body>
+</html>
